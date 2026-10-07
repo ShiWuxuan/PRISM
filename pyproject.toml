@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "prism-merge"
+version = "0.1.0"
+description = "PRISM fusion of independently trained LoRA adapters"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [{ name = "Wuxuan Shi" }]
+dependencies = ["torch>=2.4", "safetensors>=0.4.5"]
+
+[project.optional-dependencies]
+train = ["llamafactory @ git+https://github.com/hiyouga/LLaMA-Factory.git@d7d734d54c7c9a1e3c9660e9689e89a4abb65a9d"]
+dev = ["pytest>=8", "build>=1", "ruff>=0.9"]
+
+[project.scripts]
+prism-merge = "prism.cli:main"
+prism-train = "prism.train:main"
+
+[project.urls]
+Repository = "https://github.com/ShiWuxuan/PRISM"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/prism"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/scripts", "/tests", "/README.md", "/LICENSE", "/NOTICE", "/CITATION.cff", "/pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not integration'"
+markers = ["integration: offline training smoke test requiring the train extra"]
+
+[tool.ruff]
+line-length = 119
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]

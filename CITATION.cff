@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this software when using this implementation."
+title: "PRISM: LoRA Adapter Fusion"
+type: software
+authors:
+  - family-names: Shi
+    given-names: Wuxuan
+repository-code: "https://github.com/ShiWuxuan/PRISM"
+version: 0.1.0
+license: Apache-2.0

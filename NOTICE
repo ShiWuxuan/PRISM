@@ -1,0 +1,13 @@
+PRISM
+Copyright 2026 Wuxuan Shi
+
+PRISM fusion, adapter I/O and the fusion CLI were extracted from a research
+implementation integrated with LLaMA-Factory. Relevant source files retain
+their original copyright notices and carry modification notices.
+
+The optional training backend is LLaMA-Factory, Copyright the LlamaFactory
+team and other contributors, licensed under Apache-2.0:
+https://github.com/hiyouga/LLaMA-Factory
+
+This release removes framework dependencies from fusion and provides a
+separate single-task training entry point against a pinned upstream commit.
