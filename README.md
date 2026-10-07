@@ -1,5 +1,8 @@
 # PRISM
 
+Code for **PRISM: Spectral Pruning and Reconstruction for Parameter-Efficient
+Model Merging of MLLMs**.
+
 PRISM merges independently trained, compatible LoRA adapters into one adapter.
 This repository provides the PRISM fusion implementation and a single-task SFT
 LoRA training entry point backed by a pinned version of
@@ -106,6 +109,13 @@ directions in global descending singular-value order, optionally applies EPO,
 and reconstructs the fused A/B factors. The Python API merges tensors;
 the CLI additionally checks configurations and updates the saved adapter metadata.
 
+## Dataset
+
+The data used in our experiments comes from
+[MLLM-CL on Hugging Face](https://huggingface.co/datasets/MLLM-CL/MLLM-CL).
+Download the relevant task data from that repository and prepare it in the
+format described below for single-task LoRA training.
+
 ## Train one task-specific LoRA
 
 Prepare a data directory containing `dataset_info.json`, your training JSON,
@@ -201,6 +211,17 @@ The integration test runs two steps for each of two synthetic tasks on CPU;
 it downloads no model or dataset. Its temporary weights are not release assets.
 
 ## Citation and license
+
+If you use PRISM in your research, please cite our paper:
+
+```bibtex
+@article{shi2026prism,
+  title={PRISM: Spectral Pruning and Reconstruction for Parameter-Efficient Model Merging of MLLMs},
+  author={Shi, Wuxuan and Chen, Haotian and Li, He Lia and Yang, Qiang and Ye, Mang},
+  journal={Advances in Neural Information Processing Systems},
+  year={2026}
+}
+```
 
 Software citation metadata is provided in `CITATION.cff`.
 This code is distributed under Apache-2.0; see `LICENSE` and `NOTICE` for
