@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 authors = [{ name = "Wuxuan Shi" }]
-dependencies = ["torch>=2.4", "safetensors>=0.4.5"]
+dependencies = ["torch>=2.4", "safetensors>=0.4.5", "numpy>=1.24"]
 
 [project.optional-dependencies]
 train = ["llamafactory @ git+https://github.com/hiyouga/LLaMA-Factory.git@d7d734d54c7c9a1e3c9660e9689e89a4abb65a9d"]
